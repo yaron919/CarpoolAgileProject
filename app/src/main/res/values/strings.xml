@@ -14,6 +14,7 @@
         completions."
     </string>
     <string name="Register">Register</string>
+    <string name="createAccount">Create Account</string>
     <string name="main_menu_title">Afeka CarPool</string>
     <string name="join_carpool">Join A CarPool</string>
     <string name="create_carpool">Create A New CarPool</string>

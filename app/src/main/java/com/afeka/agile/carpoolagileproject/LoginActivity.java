@@ -28,7 +28,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.content.Intent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +61,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-
+    private Intent intent;
+    private Intent intent2;
+    private TextView registerTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,9 +91,25 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 attemptLogin();
             }
         });
-
+        intent = new Intent(this,MainMenuActivity.class);
+        intent2 = new Intent(this,RegistrationActivity.class);
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+        registerTextView = findViewById(R.id.registerTextView);
+        mEmailSignInButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!mEmailView.toString().isEmpty() && !mPasswordView.toString().isEmpty())
+                    startActivity(intent);
+            }
+        });
+        registerTextView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent2);
+            }
+        });
+
     }
 
     private void populateAutoComplete() {
