@@ -3,7 +3,7 @@ package com.afeka.agile.carpoolagileproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CreateCarpool extends AppCompatActivity {
+public class CreateCarpoolActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
