@@ -23,7 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".RegistrationActivity"></activity>
+=======
+        <activity android:name=".MainMenuActivity" />
+        <activity android:name=".JoinCarpoolActivity" />
+        <activity android:name=".CreateCarpool"></activity>
+>>>>>>> 1010f729bdeb30cd6e0b06359c664c9d14d2f2dd
     </application>
 
 </manifest>
