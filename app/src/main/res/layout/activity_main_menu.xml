@@ -9,12 +9,12 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/join_carpool"
         android:layout_width="184dp"
         android:layout_height="51dp"
         android:layout_marginBottom="8dp"
         android:text="@string/join_carpool"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/create_carpool"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -23,19 +23,19 @@
         app:layout_constraintVertical_bias="0.694" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/create_carpool"
         android:layout_width="181dp"
         android:layout_height="51dp"
         android:layout_marginBottom="52dp"
         android:text="@string/create_carpool"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/edit_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/edit_info"
         android:layout_width="184dp"
         android:layout_height="51dp"
         android:layout_marginBottom="32dp"
