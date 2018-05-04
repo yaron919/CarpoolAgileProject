@@ -36,6 +36,6 @@
     <string name="reg_car_seats">Insert number of seats in car</string>
     <string name="reg_userName">Insert user name or e-mail</string>
     <string name="reg_password">Insert Password</string>
-    <string name="registration_complete">"Registration is Complete!"</string>
+    <string name="registration_complete">"Registration is Complete!!"</string>
 
 </resources>
