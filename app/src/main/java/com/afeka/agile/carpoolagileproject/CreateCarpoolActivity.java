@@ -41,11 +41,10 @@ public class CreateCarpoolActivity extends AppCompatActivity {
                 validData = confirmSeats(textSeats)&& confirmTime(textTime)&& confirmDate(textDate);
 
                 if(validData) {
-                    // Toast.makeText(getApplicationContext(), "Carpool Created!", Toast.LENGTH_LONG).show();
-
                     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
                     Ride ride = new Ride(textTime,textDate,textSeats);
                     database.child("rides").push().setValue(ride);
+                    Toast.makeText(getApplicationContext(), "Carpool Created!", Toast.LENGTH_LONG).show();
                     startActivity(intentToMain);
                 } else{
                      Toast.makeText(getApplicationContext(), R.string.unValidData, Toast.LENGTH_LONG).show();
@@ -72,7 +71,7 @@ public class CreateCarpoolActivity extends AppCompatActivity {
     private boolean confirmDate(String textDate){
         String currDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         String[] realDate = currDate.split("-");
-        String[] userDate = textDate.split(".");
+        String[] userDate = textDate.split("\\.");
 
 
 
