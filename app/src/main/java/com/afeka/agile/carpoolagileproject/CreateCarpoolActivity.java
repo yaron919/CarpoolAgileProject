@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Locale;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -35,15 +38,17 @@ public class CreateCarpoolActivity extends AppCompatActivity {
                 String textTime = time.getText().toString();
                 String textDate = date.getText().toString();
                 String textSeats = numSeats.getText().toString();
-
                 validData = confirmSeats(textSeats)&& confirmTime(textTime)&& confirmDate(textDate);
-
 
                 if(validData) {
                     // Toast.makeText(getApplicationContext(), "Carpool Created!", Toast.LENGTH_LONG).show();
+
+                    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+                    Ride ride = new Ride(textTime,textDate,textSeats);
+                    database.child("rides").push().setValue(ride);
                     startActivity(intentToMain);
                 } else{
-                    // Toast.makeText(getApplicationContext(), R.string.unValidData, Toast.LENGTH_LONG).show();
+                     Toast.makeText(getApplicationContext(), R.string.unValidData, Toast.LENGTH_LONG).show();
                 }
 
             }

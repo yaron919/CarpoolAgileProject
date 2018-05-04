@@ -37,5 +37,6 @@
     <string name="reg_userName">Insert user name or e-mail</string>
     <string name="reg_password">Insert Password</string>
     <string name="registration_complete">"Registration is Complete!!"</string>
-
+    <!-- Strings related to create carpool -->
+    <string name="unValidData">Fucking Error </string>
 </resources>
