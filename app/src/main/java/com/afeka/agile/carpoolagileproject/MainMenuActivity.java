@@ -37,7 +37,7 @@ public class MainMenuActivity extends AppCompatActivity {
         editInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainMenuActivity.this,LoginActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this,RegistrationActivity.class);
                 startActivity(intent);
             }
         });

@@ -16,7 +16,7 @@
     <!-- Login progress -->
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/login_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/logo" />

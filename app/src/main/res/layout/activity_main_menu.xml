@@ -8,55 +8,58 @@
     tools:context="com.afeka.agile.carpoolagileproject.MainMenuActivity">
 
 
+    <ImageView
+        android:id="@+id/main_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/join_carpool"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <Button
         android:id="@+id/join_carpool"
         android:layout_width="184dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/join_carpool"
         app:layout_constraintBottom_toTopOf="@+id/create_carpool"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/main_logo" />
 
     <Button
         android:id="@+id/create_carpool"
         android:layout_width="181dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/create_carpool"
         app:layout_constraintBottom_toTopOf="@+id/edit_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_carpool" />
 
     <Button
         android:id="@+id/edit_info"
         android:layout_width="184dp"
         android:layout_height="51dp"
         android:layout_marginBottom="100dp"
+        android:layout_marginTop="20dp"
         android:text="@string/edit_info"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_carpool" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="270dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/main_menu_title"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
