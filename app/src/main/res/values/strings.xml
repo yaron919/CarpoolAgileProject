@@ -14,9 +14,28 @@
         completions."
     </string>
     <string name="Register">Register</string>
+    <string name="Confirm">Confirm</string>
     <string name="createAccount">Create Account</string>
     <string name="main_menu_title">Afeka CarPool</string>
     <string name="join_carpool">Join A CarPool</string>
     <string name="create_carpool">Create A New CarPool</string>
     <string name="edit_info">Edit Account details</string>
+    <string name="time_of_ride">Insert Time Of Carpool</string>
+    <string name="seats_question">Insert Num of avail seats</string>
+    <string name="date_question">Insert date of Carpool</string>
+
+    <!-- Strings related to join car pool -->
+    <string name="join_carpool_form">Join A CarPool Form</string>
+    <string name="join_location_hint">Insert location for Carpool</string>
+    <string name="join_sent_request">"Carpool Join request Sent!"</string>
+
+    <!-- Strings related to registration -->
+    <string name="reg_name">Insert your Full name</string>
+    <string name="reg_age">Insert your age</string>
+    <string name="reg_car">Insert car model</string>
+    <string name="reg_car_seats">Insert number of seats in car</string>
+    <string name="reg_userName">Insert user name or e-mail</string>
+    <string name="reg_password">Insert Password</string>
+    <string name="registration_complete">"Registration is Complete!"</string>
+
 </resources>

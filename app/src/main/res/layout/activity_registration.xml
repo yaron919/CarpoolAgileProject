@@ -7,44 +7,118 @@
     tools:context=".RegistrationActivity"
     android:background="@drawable/background">
 
+    <EditText
+        android:id="@+id/reg_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/White"
+        android:ems="10"
+        android:hint="@string/reg_name"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/age_reg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/age_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/White"
+        android:ems="10"
+        android:hint="@string/reg_age"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/car_reg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_name" />
+
+    <EditText
+        android:id="@+id/car_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/White"
+        android:ems="10"
+        android:hint="@string/reg_car"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/seatNumber_reg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/age_reg" />
+
+    <EditText
+        android:id="@+id/seatNumber_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/White"
+        android:ems="10"
+        android:hint="@string/reg_car_seats"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/username_reg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/car_reg" />
+
+    <EditText
+        android:id="@+id/username_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/White"
+        android:ems="10"
+        android:hint="@string/reg_userName"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/password_reg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seatNumber_reg" />
+
+    <EditText
+        android:id="@+id/password_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/White"
+        android:ems="10"
+        android:hint="@string/reg_password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/registration_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_reg" />
+
     <Button
         android:id="@+id/registration_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="318dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/Confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:text="@string/createAccount" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="215dp"
-        android:layout_height="26dp"
-        android:background="@color/White"
-        android:hint="User"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="77dp" />
-
-    <EditText
-        android:id="@+id/emailRegistration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="127dp"
-        android:background="@color/White"/>
-
-    <EditText
-        android:id="@+id/passwordRegistration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/White"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="189dp" />
 
 </android.support.constraint.ConstraintLayout>
