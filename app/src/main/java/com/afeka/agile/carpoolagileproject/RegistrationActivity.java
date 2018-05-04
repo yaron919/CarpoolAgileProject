@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -35,10 +37,12 @@ public class RegistrationActivity extends AppCompatActivity {
                 String textAge = age.getText().toString();
                 String textCarModel = carModel.getText().toString();
                 String textSeatNumber = seatNumber.getText().toString();
-                String textUuserName= userName.getText().toString();
+                String textUserName= userName.getText().toString();
                 String textPassword = password.getText().toString();
-
-                Toast.makeText(getApplicationContext(),R.string.join_sent_request,Toast.LENGTH_LONG).show();
+                DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+                User user = new User(textName,textAge,textCarModel,textSeatNumber,textUserName,textPassword);
+                database.child("users").push().setValue(user);
+                Toast.makeText(getApplicationContext(),R.string.registration_complete,Toast.LENGTH_LONG).show();
 
                 startActivity(intentToMain);
             }
