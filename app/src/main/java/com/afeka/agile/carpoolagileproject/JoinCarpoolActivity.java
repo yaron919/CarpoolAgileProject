@@ -16,10 +16,10 @@ public class JoinCarpoolActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_carpool);
-        final EditText time = (EditText) findViewById(R.id.join_time);
-        final EditText date = (EditText) findViewById(R.id.join_date);
-        final EditText location = (EditText) findViewById(R.id.join_location);
-        Button confirmButton = (Button) findViewById(R.id.join_confirm_b);
+        final EditText time = findViewById(R.id.join_time);
+        final EditText date = findViewById(R.id.join_date);
+        final EditText location = findViewById(R.id.join_location);
+        Button confirmButton = findViewById(R.id.join_confirm_b);
 
         intentToMain = new Intent(this,MainMenuActivity.class);
 
