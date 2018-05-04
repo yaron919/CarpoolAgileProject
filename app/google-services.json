@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "174067379991-g7ler4ha3begfn9sd6cvsur167jnousa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.afeka.agile.carpoolagileproject",
+            "certificate_hash": "c9f44f137fa0531de650b72a70de0265a32fefa5"
+          }
+        },
+        {
           "client_id": "174067379991-5cb2c2q8446vphvphao8ekk0lvm991jn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
