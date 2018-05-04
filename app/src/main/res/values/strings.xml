@@ -19,4 +19,7 @@
     <string name="join_carpool">Join A CarPool</string>
     <string name="create_carpool">Create A New CarPool</string>
     <string name="edit_info">Edit Account details</string>
+    <string name="time_of_ride">Insert Time Of Carpool</string>
+    <string name="seats_question">Insert Num of avail seats</string>
+    <string name="date_question">Insert date of Carpool</string>
 </resources>
