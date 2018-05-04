@@ -53,10 +53,10 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:background="@color/White"
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/White"
                     android:fontFamily="monospace"
                     android:hint="@string/prompt_password"
                     android:imeActionId="6"
