@@ -1,5 +1,6 @@
 package com.afeka.agile.carpoolagileproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -9,6 +10,8 @@ import android.widget.Toast;
 
 public class CreateCarpoolActivity extends AppCompatActivity {
 
+    private Intent intentToMain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +20,8 @@ public class CreateCarpoolActivity extends AppCompatActivity {
         final EditText date = (EditText) findViewById(R.id.date_of_ride);
         final EditText numSeats = (EditText) findViewById(R.id.number_of_seats);
         Button confirmButton = (Button) findViewById(R.id.confirm_join);
+
+        intentToMain = new Intent(this,MainMenuActivity.class);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +33,8 @@ public class CreateCarpoolActivity extends AppCompatActivity {
                 String textSeats = numSeats.getText().toString();
 
                 Toast.makeText(getApplicationContext(),"Carpool Created!",Toast.LENGTH_LONG).show();
+
+                startActivity(intentToMain);
 
             }
         });

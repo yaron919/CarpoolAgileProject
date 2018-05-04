@@ -14,6 +14,7 @@
         completions."
     </string>
     <string name="Register">Register</string>
+    <string name="Confirm">Confirm</string>
     <string name="createAccount">Create Account</string>
     <string name="main_menu_title">Afeka CarPool</string>
     <string name="join_carpool">Join A CarPool</string>
@@ -22,4 +23,9 @@
     <string name="time_of_ride">Insert Time Of Carpool</string>
     <string name="seats_question">Insert Num of avail seats</string>
     <string name="date_question">Insert date of Carpool</string>
+
+    <!-- Strings related to join car pool -->
+    <string name="join_carpool_form">Join A CarPool Form</string>
+    <string name="join_location_hint">Insert location for Carpool</string>
+    <string name="join_sent_request">"Carpool Join request Sent!"</string>
 </resources>
