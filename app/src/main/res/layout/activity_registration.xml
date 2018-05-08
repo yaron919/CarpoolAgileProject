@@ -17,7 +17,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="@string/reg_name"
-        android:inputType="number"
+        android:inputType="text"
         android:textColor="@color/Black"
         android:textColorHint="@color/Black"
         app:layout_constraintBottom_toTopOf="@+id/age_reg"
