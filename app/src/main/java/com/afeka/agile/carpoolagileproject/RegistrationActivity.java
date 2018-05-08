@@ -43,7 +43,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 User user = new User(textName,textAge,textCarModel,textSeatNumber,textUserName,textPassword);
                 database.child("users").push().setValue(user);
                 Toast.makeText(getApplicationContext(),R.string.registration_complete,Toast.LENGTH_LONG).show();
-
                 startActivity(intentToMain);
             }
         });
