@@ -78,7 +78,6 @@ public class DataCheck {
             int seats = Integer.parseInt(textSeats);
             if(seats < 1)
                 return false;
-            //TODO getting from db number of max seats in car
             checkSeatsDB();
             if(seats >= maxSeats)
                 return false;
@@ -141,7 +140,7 @@ public class DataCheck {
             //Get userName field and append to list
             String userName =(String) singleUser.get("userName");
             if(userName.equals(UserNameHolder.getInstance().getUserName()))
-                return (int)singleUser.get("seats");
+                return Integer.parseInt((String) singleUser.get("seatNumbers"));
         }
         return -1;
 
