@@ -44,15 +44,16 @@ public class RegistrationActivity extends AppCompatActivity {
                 String textName = name.getText().toString();
                 validData = !textName.isEmpty();
                 String textAge = age.getText().toString();
-                validData = DataCheck.confirmAge(textAge);
+                validData &= DataCheck.confirmAge(textAge);
                 String textCarModel = carModel.getText().toString();
                 String textSeatNumber = seatNumber.getText().toString();
-                validData = DataCheck.confirmSeatNumber(textSeatNumber);
+                validData &= DataCheck.confirmSeatNumber(textSeatNumber);
                 String textUserName= userName.getText().toString();
-                //TODO validate user name
                 String textPassword = password.getText().toString();
-                DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-                addUser(textName,textAge,textCarModel,textSeatNumber,textPassword,textUserName);
+                if(validData){
+                    addUser(textName,textAge,textCarModel,textSeatNumber,textPassword,textUserName);
+                }else
+                    Toast.makeText(getApplicationContext(),R.string.unValidData,Toast.LENGTH_LONG).show();
 
             }
         });
