@@ -147,7 +147,7 @@ public class DataCheck {
     }
 
 
-    public static boolean validUser = true;
+    public static boolean validUser = false;
     public static boolean checkUser(final String password){
 
         //Get datasnapshot at your "users" root node
