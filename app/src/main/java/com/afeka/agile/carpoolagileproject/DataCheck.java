@@ -145,4 +145,47 @@ public class DataCheck {
         return -1;
 
     }
+
+
+    public static boolean validUser = true;
+    public static boolean checkUser(final String password){
+
+        //Get datasnapshot at your "users" root node
+        String userName = UserNameHolder.getInstance().getUserName();
+        String[] userNameSplit =userName.split("@");
+        if(userNameSplit.length != 2 && userNameSplit[1].equals("afeka.ac.il"))
+            return false;
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users");
+        ref.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+                        validUser= getUserPassword((Map<String,Object>) dataSnapshot.getValue(), password);
+
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        //handle databaseError
+                    }
+                });
+
+        return validUser;
+
+    }
+
+
+    public static boolean getUserPassword(Map<String,Object> users, String password) {
+        //iterate through each user, ignoring their UID
+        for (Map.Entry<String, Object> entry : users.entrySet()){
+            //Get user map
+            Map singleUser = (Map) entry.getValue();
+            //Get userName field and append to list
+            String userName =(String) singleUser.get("userName");
+            if(userName.equals(UserNameHolder.getInstance().getUserName()))
+                return ((String)singleUser.get("password")).equals(password);
+        }
+        return false;
+
+    }
 }
