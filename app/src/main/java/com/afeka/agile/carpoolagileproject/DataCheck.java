@@ -1,8 +1,18 @@
 package com.afeka.agile.carpoolagileproject;
 
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Map;
 
 public class DataCheck {
 
@@ -69,7 +79,7 @@ public class DataCheck {
             if(seats < 1)
                 return false;
             //TODO getting from db number of max seats in car
-            int maxSeats = 5;
+            checkSeatsDB();
             if(seats >= maxSeats)
                 return false;
 
@@ -99,5 +109,41 @@ public class DataCheck {
         }catch(NumberFormatException e){
             return false;
         }
+    }
+
+    public static int maxSeats = 5;
+    public static void checkSeatsDB(){
+
+        //Get datasnapshot at your "users" root node
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users");
+        ref.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+                        maxSeats= getUserSeats((Map<String,Object>) dataSnapshot.getValue());
+
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        //handle databaseError
+                    }
+                });
+
+    }
+
+
+    public static int getUserSeats(Map<String,Object> users) {
+        //iterate through each user, ignoring their UID
+        for (Map.Entry<String, Object> entry : users.entrySet()){
+            //Get user map
+            Map singleUser = (Map) entry.getValue();
+            //Get userName field and append to list
+            String userName =(String) singleUser.get("userName");
+            if(userName.equals(UserNameHolder.getInstance().getUserName()))
+                return (int)singleUser.get("seats");
+        }
+        return -1;
+
     }
 }
