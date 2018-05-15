@@ -38,7 +38,7 @@ public class CreateCarpoolActivity extends AppCompatActivity {
                 String textTime = time.getText().toString();
                 String textDate = date.getText().toString();
                 String textSeats = numSeats.getText().toString();
-                validData = confirmSeats(textSeats)&& confirmTime(textTime)&& confirmDate(textDate);
+                validData = DataCheck.confirmSeats(textSeats)&& DataCheck.confirmTime(textTime)&& DataCheck.confirmDate(textDate);
 
                 if(validData) {
                     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
@@ -54,7 +54,7 @@ public class CreateCarpoolActivity extends AppCompatActivity {
         });
 
     }
-
+/*
     private boolean confirmTime(String textTime){
         String[] times = textTime.split(":");
         if(times.length != 2)
@@ -127,4 +127,5 @@ public class CreateCarpoolActivity extends AppCompatActivity {
             return false;
         }
     }
+    */
 }
