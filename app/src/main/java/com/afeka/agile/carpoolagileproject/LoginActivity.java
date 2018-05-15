@@ -29,6 +29,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.content.Intent;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,7 +102,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View v) {
                 if (!mEmailView.toString().isEmpty() && !mPasswordView.toString().isEmpty())
+                {
+                    UserNameHolder.getInstance().setUserName(mEmailView.getText().toString());
                     startActivity(intent);
+                }
+
             }
         });
         registerTextView.setOnClickListener(new OnClickListener() {

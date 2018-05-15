@@ -71,7 +71,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
                         ArrayList<String> userNames = new ArrayList<>();
                         //Get map of users in datasnapshot
-                        userNames=collectUsers((Map<String,Object>) dataSnapshot.getValue(),userNameChosen);
+                        userNames=collectUsers((Map<String,Object>) dataSnapshot.getValue());
                         if(!userNames.contains(userNameChosen)){
                             User user = new User(name,age,carModel,seatNumber,userNameChosen,password);
                             database.child("users").push().setValue(user);
@@ -93,7 +93,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
 
-    private ArrayList<String> collectUsers(Map<String,Object> users,String currentUser) {
+    private ArrayList<String> collectUsers(Map<String,Object> users) {
 
         ArrayList<String> userNames = new ArrayList<>();
 

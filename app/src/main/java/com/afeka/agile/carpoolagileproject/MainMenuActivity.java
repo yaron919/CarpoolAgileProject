@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.view.View;
 
 
-
 public class MainMenuActivity extends AppCompatActivity {
 
     @Override
