@@ -31,7 +31,6 @@ public class CreateCarpoolActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean validData = true;
-                /** TO DO - ADD DB FireBase connection **/
                 String textTime = time.getText().toString();
                 String textDate = date.getText().toString();
                 String textSeats = numSeats.getText().toString();
