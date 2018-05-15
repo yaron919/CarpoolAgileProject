@@ -103,20 +103,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserNameHolder.getInstance().setUserName(mEmailView.getText().toString());
                 if (!mEmailView.toString().isEmpty() && !mPasswordView.toString().isEmpty())
                 {
-
+                    DataCheck.checkUser(mPasswordView.getText().toString());
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                             isValid = DataCheck.checkUser(mPasswordView.getText().toString());
+                            if(DataCheck.validUser)
+                                startActivity(intent);
+                            else
+                                Toast.makeText(getApplicationContext(),R.string.error_incorrect_password,Toast.LENGTH_LONG).show();
                         }
                     },4000);
-                    UserNameHolder.getInstance().setUserName(mEmailView.getText().toString());
-                    if(isValid)
-                        startActivity(intent);
-                    else
-                        Toast.makeText(getApplicationContext(),R.string.error_incorrect_password,Toast.LENGTH_LONG).show();
+
                 }
 
             }
