@@ -22,7 +22,7 @@ public class DataCheck {
     public static boolean confirmDate(String textDate){
         String currDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         String[] realDate = currDate.split("-");
-        String[] userDate = textDate.split("\\.");
+        String[] userDate = textDate.split("-");
 
 
 
