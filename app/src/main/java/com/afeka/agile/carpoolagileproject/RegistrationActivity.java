@@ -31,19 +31,30 @@ public class RegistrationActivity extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                boolean validData = true;
                 /** TO DO - ADD DB FireBase connection **/
                 String textName = name.getText().toString();
+                validData = !textName.isEmpty();
                 String textAge = age.getText().toString();
+                validData = DataCheck.confirmAge(textAge);
                 String textCarModel = carModel.getText().toString();
                 String textSeatNumber = seatNumber.getText().toString();
+                validData = DataCheck.confirmSeatNumber(textSeatNumber);
                 String textUserName= userName.getText().toString();
+                //TODO validate user name
                 String textPassword = password.getText().toString();
-                DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-                User user = new User(textName,textAge,textCarModel,textSeatNumber,textUserName,textPassword);
-                database.child("users").push().setValue(user);
-                Toast.makeText(getApplicationContext(),R.string.registration_complete,Toast.LENGTH_LONG).show();
-                startActivity(intentToMain);
+                validData = !textPassword.isEmpty();
+
+                if(validData) {
+                    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+                    User user = new User(textName,textAge,textCarModel,textSeatNumber,textUserName,textPassword);
+                    database.child("users").push().setValue(user);
+                    Toast.makeText(getApplicationContext(),R.string.registration_complete,Toast.LENGTH_LONG).show();
+                    startActivity(intentToMain);
+                }
+
+                else
+                    Toast.makeText(getApplicationContext(), R.string.unValidData, Toast.LENGTH_LONG).show();
             }
         });
 
