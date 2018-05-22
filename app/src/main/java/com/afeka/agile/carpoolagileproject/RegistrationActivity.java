@@ -40,7 +40,6 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean validData = true;
-                /** TO DO - ADD DB FireBase connection **/
                 String textName = name.getText().toString();
                 validData = !textName.isEmpty();
                 String textAge = age.getText().toString();
