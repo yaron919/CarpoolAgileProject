@@ -1,6 +1,7 @@
 package com.afeka.agile.carpoolagileproject;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,7 @@ import java.util.Map;
 public class RegistrationActivity extends AppCompatActivity {
 
     private Intent intentToMain;
-
+    private final Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class RegistrationActivity extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean validData = true;
+                boolean validData;
                 /** TO DO - ADD DB FireBase connection **/
                 String textName = name.getText().toString();
                 validData = !textName.isEmpty();
@@ -49,6 +50,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 String textSeatNumber = seatNumber.getText().toString();
                 validData &= DataCheck.confirmSeatNumber(textSeatNumber);
                 String textUserName= userName.getText().toString();
+                validData &=  DataCheck.checkUserRegistration(textUserName);
                 String textPassword = password.getText().toString();
                 if(validData){
                     addUser(textName,textAge,textCarModel,textSeatNumber,textPassword,textUserName);
@@ -69,7 +71,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-                        ArrayList<String> userNames = new ArrayList<>();
+                        ArrayList<String> userNames;
                         //Get map of users in datasnapshot
                         userNames=collectUsers((Map<String,Object>) dataSnapshot.getValue());
                         if(!userNames.contains(userNameChosen)){
