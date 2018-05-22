@@ -49,7 +49,9 @@ public class RegistrationActivity extends AppCompatActivity {
                 String textSeatNumber = seatNumber.getText().toString();
                 validData &= DataCheck.confirmSeatNumber(textSeatNumber);
                 String textUserName= userName.getText().toString();
+                validData &= DataCheck.checkUser(textUserName);
                 String textPassword = password.getText().toString();
+
                 if(validData){
                     addUser(textName,textAge,textCarModel,textSeatNumber,textPassword,textUserName);
                 }else
