@@ -147,14 +147,16 @@ public class DataCheck {
     }
 
 
-    public static boolean validUser = true;
-    public static boolean checkUser(final String password){
+    public static boolean validUser = false;
+    public static void checkUser(final String password){
 
         //Get datasnapshot at your "users" root node
         String userName = UserNameHolder.getInstance().getUserName();
         String[] userNameSplit =userName.split("@");
-        if(userNameSplit.length != 2 && userNameSplit[1].equals("afeka.ac.il"))
-            return false;
+        if(userNameSplit.length != 2)
+            return;
+        if(!userNameSplit[1].equals("afeka.ac.il"))
+            return;
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users");
         ref.addListenerForSingleValueEvent(
                 new ValueEventListener() {
@@ -170,7 +172,6 @@ public class DataCheck {
                     }
                 });
 
-        return validUser;
 
     }
 

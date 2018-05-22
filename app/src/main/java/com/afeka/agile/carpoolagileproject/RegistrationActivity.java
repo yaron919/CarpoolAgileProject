@@ -34,7 +34,7 @@ public class RegistrationActivity extends AppCompatActivity {
         final EditText password = findViewById(R.id.password_reg);
         Button confirmButton = findViewById(R.id.registration_button);
 
-        intentToMain = new Intent(this,MainMenuActivity.class);
+        intentToMain = new Intent(this,LoginActivity.class);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override

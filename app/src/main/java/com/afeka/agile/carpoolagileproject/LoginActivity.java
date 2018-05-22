@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
-
+import android.os.Handler;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
@@ -45,6 +45,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
+    private final Handler handler = new Handler();
+    private  boolean isValid = false;
 
     /**
      * A dummy authentication store containing known user names and passwords.
@@ -101,10 +103,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserNameHolder.getInstance().setUserName(mEmailView.getText().toString());
                 if (!mEmailView.toString().isEmpty() && !mPasswordView.toString().isEmpty())
                 {
-                    UserNameHolder.getInstance().setUserName(mEmailView.getText().toString());
-                    startActivity(intent);
+                    DataCheck.checkUser(mPasswordView.getText().toString());
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(DataCheck.validUser)
+                                startActivity(intent);
+                            else
+                                Toast.makeText(getApplicationContext(),R.string.error_incorrect_password,Toast.LENGTH_LONG).show();
+                        }
+                    },4000);
+
                 }
 
             }
