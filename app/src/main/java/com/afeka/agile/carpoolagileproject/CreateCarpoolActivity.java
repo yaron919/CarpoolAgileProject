@@ -1,6 +1,7 @@
 package com.afeka.agile.carpoolagileproject;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -38,7 +39,7 @@ public class CreateCarpoolActivity extends AppCompatActivity {
 
                 if(validData) {
                     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-                    Ride ride = new Ride(textTime,textDate,textSeats);
+                    Ride ride = new Ride(textTime,textDate,textSeats,UserNameHolder.getInstance().getUserName());
                     database.child("rides").push().setValue(ride);
                     Toast.makeText(getApplicationContext(), "Carpool Created!", Toast.LENGTH_LONG).show();
                     startActivity(intentToMain);
@@ -50,5 +51,6 @@ public class CreateCarpoolActivity extends AppCompatActivity {
         });
 
     }
+
 
 }
