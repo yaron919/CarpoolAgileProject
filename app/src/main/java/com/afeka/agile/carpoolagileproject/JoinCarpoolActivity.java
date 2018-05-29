@@ -2,6 +2,7 @@ package com.afeka.agile.carpoolagileproject;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -24,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JoinCarpoolActivity extends AppCompatActivity {
-
+    private final Handler handler = new Handler();
     private static final String TAG = JoinCarpoolActivity.class.getSimpleName();
     private ListView rides;
     private String user = UserNameHolder.getInstance().getUserName();
@@ -39,15 +40,22 @@ public class JoinCarpoolActivity extends AppCompatActivity {
 
         rides.setBackgroundColor(Color.parseColor("#ffffff"));
         ridesAvailable = new ArrayList<>();
-
+        //ridesAvailable.add(new Ride());
         /***
          *
          * Add firebase conenction to show rides available
          */
         pullRidesData();
+        final JoinCarpoolAdapter adapter = new JoinCarpoolAdapter(this, R.layout.adapter_view_layout, ridesAvailable);
 
-        JoinCarpoolAdapter adapter = new JoinCarpoolAdapter(this, R.layout.adapter_view_layout, ridesAvailable);
-        rides.setAdapter(adapter);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                rides.setAdapter(adapter);
+
+            }
+        },4000);
+       // rides.setAdapter(adapter);
 
     }
 
@@ -82,6 +90,7 @@ public class JoinCarpoolActivity extends AppCompatActivity {
         Log.d(TAG,"date : "+singleRide.get("date").toString());
         Log.d(TAG,"driver : "+singleRide.get("driver").toString());
         Log.d(TAG,"seats : "+singleRide.get("seats").toString());
+        Log.d(TAG,"User : "+user);
     }
 }
 
