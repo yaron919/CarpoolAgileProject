@@ -63,10 +63,7 @@ public class JoinCarpoolActivity extends AppCompatActivity {
                 for (Map.Entry<String, Object> entry : rides.entrySet()){
                     //Get user map
                     Map singleRide = (Map) entry.getValue();
-                    //Get userName field and append to list
-                    //if (!singleRide.get("driver").toString().equals(user))
-                    ridesAvailable.add(new Ride(singleRide.get("time").toString(),singleRide.get("date").toString(),singleRide.get("seats").toString(),singleRide.get("driver").toString()));
-                    Log.d(TAG,"time : "+singleRide.get("time").toString());
+                    addRideToList(singleRide);
                 }
             }
 
@@ -76,6 +73,15 @@ public class JoinCarpoolActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    private void addRideToList(Map singleRide) {
+        if (!singleRide.get("driver").toString().equals(user))
+            ridesAvailable.add(new Ride(singleRide.get("time").toString(),singleRide.get("date").toString(),singleRide.get("seats").toString(),singleRide.get("driver").toString()));
+        Log.d(TAG,"time : "+singleRide.get("time").toString());
+        Log.d(TAG,"date : "+singleRide.get("date").toString());
+        Log.d(TAG,"driver : "+singleRide.get("driver").toString());
+        Log.d(TAG,"seats : "+singleRide.get("seats").toString());
     }
 }
 
