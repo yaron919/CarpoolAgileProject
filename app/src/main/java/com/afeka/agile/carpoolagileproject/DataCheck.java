@@ -110,8 +110,8 @@ public class DataCheck {
         }
     }
 
-    public static int maxSeats = 5;
-    public static void checkSeatsDB(){
+    private static int maxSeats = 5;
+    private static void checkSeatsDB(){
 
         //Get datasnapshot at your "users" root node
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users");
@@ -132,7 +132,7 @@ public class DataCheck {
     }
 
 
-    public static int getUserSeats(Map<String,Object> users) {
+    private static int getUserSeats(Map<String,Object> users) {
         //iterate through each user, ignoring their UID
         for (Map.Entry<String, Object> entry : users.entrySet()){
             //Get user map
@@ -175,8 +175,20 @@ public class DataCheck {
 
     }
 
+    public static boolean checkUserRegistration(final String userName){
 
-    public static boolean getUserPassword(Map<String,Object> users, String password) {
+        //Get datasnapshot at your "users" root node
+        String[] userNameSplit =userName.split("@");
+        if(userNameSplit.length != 2)
+            return false;
+        if(!userNameSplit[1].equals("afeka.ac.il"))
+            return false;
+        return true;
+
+    }
+
+
+    private static boolean getUserPassword(Map<String,Object> users, String password) {
         //iterate through each user, ignoring their UID
         for (Map.Entry<String, Object> entry : users.entrySet()){
             //Get user map
@@ -184,9 +196,23 @@ public class DataCheck {
             //Get userName field and append to list
             String userName =(String) singleUser.get("userName");
             if(userName.equals(UserNameHolder.getInstance().getUserName()))
-                return ((String)singleUser.get("password")).equals(password);
+                return (singleUser.get("password")).equals(password);
         }
         return false;
+
+    }
+
+    public static boolean getUserRegistration(Map<String,Object> users, String newUser) {
+        //iterate through each user, ignoring their UID
+        for (Map.Entry<String, Object> entry : users.entrySet()){
+            //Get user map
+            Map singleUser = (Map) entry.getValue();
+            //Get userName field and append to list
+            String userName =(String) singleUser.get("userName");
+            if(userName.equals(newUser))
+                return false;
+        }
+        return true;
 
     }
 }
