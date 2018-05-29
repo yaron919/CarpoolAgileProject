@@ -11,69 +11,19 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="63dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/join_location"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/join_logo" />
 
-    <EditText
-        android:id="@+id/join_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="63dp"
-        android:ems="10"
-        android:hint="@string/join_location_hint"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rides_recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="414dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <EditText
-        android:id="@+id/join_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="@string/date_question"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/join_time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/join_location" />
-
-    <EditText
-        android:id="@+id/join_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="@string/time_of_ride"
-        android:inputType="time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/join_date" />
-
-    <Button
-        android:id="@+id/join_confirm_b"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/Confirm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/join_time" />
 </android.support.constraint.ConstraintLayout>
