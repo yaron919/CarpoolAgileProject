@@ -18,5 +18,21 @@ public class Ride {
         this.driver = driver;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public String getSeats() {
+        return seats;
+    }
+
+    public String getTime() {
+        return time;
+    }
 
 }
+
