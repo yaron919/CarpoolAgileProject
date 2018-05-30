@@ -24,6 +24,7 @@ public class CreateCarpoolActivity extends AppCompatActivity {
         final EditText time = findViewById(R.id.time_of_ride);
         final EditText date = findViewById(R.id.date_of_ride);
         final EditText numSeats = findViewById(R.id.number_of_seats);
+        final EditText CityEd = findViewById(R.id.city_of_ride);
         Button confirmButton = findViewById(R.id.confirm_join);
 
         intentToMain = new Intent(this,MainMenuActivity.class);
@@ -36,10 +37,15 @@ public class CreateCarpoolActivity extends AppCompatActivity {
                 String textDate = date.getText().toString();
                 String textSeats = numSeats.getText().toString();
                 validData = DataCheck.confirmSeats(textSeats)&& DataCheck.confirmTime(textTime)&& DataCheck.confirmDate(textDate);
+                String textCity = CityEd.getText().toString();
+                if (textCity.isEmpty())
+                {
+                    validData=false;
+                }
 
                 if(validData) {
                     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-                    Ride ride = new Ride(textTime,textDate,textSeats,UserNameHolder.getInstance().getUserName());
+                    Ride ride = new Ride(textTime,textDate,textSeats,UserNameHolder.getInstance().getUserName(),textCity);
                     database.child("rides").push().setValue(ride);
                     Toast.makeText(getApplicationContext(), "Carpool Created!", Toast.LENGTH_LONG).show();
                     startActivity(intentToMain);

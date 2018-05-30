@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background2"
     tools:context="com.afeka.agile.carpoolagileproject.CreateCarpoolActivity"
-    android:background="@drawable/background2">
+    tools:layout_editor_absoluteY="81dp">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="96dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="32dp"
         android:layout_marginTop="37dp"
         app:layout_constraintBottom_toTopOf="@+id/time_of_ride"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/create_logo" />
@@ -22,16 +22,14 @@
     <EditText
         android:id="@+id/time_of_ride"
         android:layout_width="wrap_content"
-        android:layout_height="39dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:hint="HH:MM"
         android:inputType="time"
         android:textColorHint="@color/Black"
+        app:layout_constraintBottom_toTopOf="@+id/city_of_ride"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -39,40 +37,50 @@
         android:id="@+id/number_of_seats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginBottom="25dp"
         android:ems="10"
         android:hint="1-5"
         android:inputType="number"
         android:textColorHint="@color/Black"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_join"
+        app:layout_constraintStart_toStartOf="@+id/date_of_ride"
         app:layout_constraintTop_toBottomOf="@+id/date_of_ride" />
 
     <EditText
         android:id="@+id/date_of_ride"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginBottom="44dp"
         android:ems="10"
         android:hint="DD-MM-YYYY"
         android:inputType="date"
         android:textColorHint="@color/Black"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/number_of_seats"
+        app:layout_constraintStart_toStartOf="@+id/city_of_ride"
+        app:layout_constraintTop_toBottomOf="@+id/city_of_ride" />
+
+    <EditText
+        android:id="@+id/city_of_ride"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="City"
+        android:inputType="text"
+        android:textColorHint="@color/Black"
+        app:layout_constraintBottom_toTopOf="@+id/date_of_ride"
+        app:layout_constraintStart_toStartOf="@+id/time_of_ride"
         app:layout_constraintTop_toBottomOf="@+id/time_of_ride" />
 
     <Button
         android:id="@+id/confirm_join"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="26dp"
         android:text="Confirm"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/number_of_seats" />
 
 </android.support.constraint.ConstraintLayout>

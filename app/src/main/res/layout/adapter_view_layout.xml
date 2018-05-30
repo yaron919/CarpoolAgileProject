@@ -6,14 +6,29 @@
     android:weightSum="100">
 
 
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="Driver"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:id="@+id/listDriverRide"
-        android:layout_weight="66.6"/>
+    <LinearLayout
+        android:layout_width="626dp"
+        android:layout_height="match_parent"
+        android:layout_weight="66.6"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/listDriverRide"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="Driver"
+            android:textAlignment="center" />
+        <TextView
+            android:gravity="center"
+            android:text="Time"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/listCityRide"
+            android:layout_below="@+id/listDriverRide"/>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -28,6 +43,8 @@
             android:layout_height="30dp"
             android:id="@+id/listTimeRide"/>
 
+
+
         <TextView
             android:gravity="center"
             android:text="Date"
@@ -35,6 +52,29 @@
             android:layout_height="30dp"
             android:id="@+id/listDateRide"
             android:layout_below="@+id/listTimeRide"/>
+
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/listBtnJoinRide"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Join"
+            android:layout_marginRight="@dimen/activity_vertical_margin"/>
+
+        <TextView
+            android:id="@+id/listSeatsRide"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:layout="@+id/listBtnJoinRide"
+            android:text="Seats" />
+    </LinearLayout>
+
+
 
 </LinearLayout>

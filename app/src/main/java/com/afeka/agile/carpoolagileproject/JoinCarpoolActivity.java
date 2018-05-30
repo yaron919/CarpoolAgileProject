@@ -30,6 +30,7 @@ public class JoinCarpoolActivity extends AppCompatActivity {
     private ListView rides;
     private String user = UserNameHolder.getInstance().getUserName();
     private ArrayList<Ride> ridesAvailable;
+    private ArrayList<String> ridesKeyAvilable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +41,14 @@ public class JoinCarpoolActivity extends AppCompatActivity {
 
         rides.setBackgroundColor(Color.parseColor("#ffffff"));
         ridesAvailable = new ArrayList<>();
+        ridesKeyAvilable = new ArrayList<>();
         //ridesAvailable.add(new Ride());
         /***
          *
          * Add firebase conenction to show rides available
          */
         pullRidesData();
-        final JoinCarpoolAdapter adapter = new JoinCarpoolAdapter(this, R.layout.adapter_view_layout, ridesAvailable);
+        final JoinCarpoolAdapter adapter = new JoinCarpoolAdapter(this, R.layout.adapter_view_layout, ridesAvailable,ridesKeyAvilable);
 
         handler.postDelayed(new Runnable() {
             @Override
@@ -71,7 +73,7 @@ public class JoinCarpoolActivity extends AppCompatActivity {
                 for (Map.Entry<String, Object> entry : rides.entrySet()){
                     //Get user map
                     Map singleRide = (Map) entry.getValue();
-                    addRideToList(singleRide);
+                    addRideToList(singleRide,entry.getKey());
                 }
             }
 
@@ -83,14 +85,15 @@ public class JoinCarpoolActivity extends AppCompatActivity {
         });
     }
 
-    private void addRideToList(Map singleRide) {
-        if (!singleRide.get("driver").toString().equals(user))
-            ridesAvailable.add(new Ride(singleRide.get("time").toString(),singleRide.get("date").toString(),singleRide.get("seats").toString(),singleRide.get("driver").toString()));
-        Log.d(TAG,"time : "+singleRide.get("time").toString());
-        Log.d(TAG,"date : "+singleRide.get("date").toString());
-        Log.d(TAG,"driver : "+singleRide.get("driver").toString());
-        Log.d(TAG,"seats : "+singleRide.get("seats").toString());
-        Log.d(TAG,"User : "+user);
+    private void addRideToList(Map singleRide,String rideId) {
+        if (!singleRide.get("driver").toString().equals(user) && !singleRide.get("seats").toString().equals("0")){
+            ridesAvailable.add(new Ride(singleRide.get("time").toString(),singleRide.get("date").toString(),
+                    singleRide.get("seats").toString(), singleRide.get("driver").toString(),
+                    singleRide.get("city").toString()));
+            ridesKeyAvilable.add(rideId);
+        }
+
+
     }
 }
 
