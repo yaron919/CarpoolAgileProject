@@ -84,6 +84,7 @@ public class JoinCarpoolAdapter extends ArrayAdapter<Ride> {
             @Override
             public void onClick(View v) {
                 updateSeats(rideId,ride);
+                Toast.makeText(mContext,R.string.joinToCarpool,Toast.LENGTH_LONG).show();
                 mContext.startActivity(new Intent(mContext,MainMenuActivity.class));
             }
         });

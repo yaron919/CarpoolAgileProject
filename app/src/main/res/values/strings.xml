@@ -40,4 +40,6 @@
     <string name="user_name_exists">The user name already exists</string>
     <!-- Strings related to create carpool -->
     <string name="unValidData">Wrong data format </string>
+
+    <string name="joinToCarpool">The Join to Carpool process conplete !!</string>
 </resources>
